@@ -1,0 +1,45 @@
+{
+  "usuario": "JodanCarvalho",
+  "fuso_horas": -3,
+  "atividade_dias": 180,
+  "excluir_repos": ["gitui", "JodanCarvalho"],
+
+  "fastfetch": {
+    "titulo": ["jodan", "zaruvi"],
+    "subtitulo": "jodan carvalho",
+    "linhas": [
+      ["função", "fundador · full-stack",               "green"],
+      ["foco",   "agentes de ia · comércio hiperlocal", "blue"],
+      ["stack",  "node · python · flutter · postgres",  "cyan"],
+      ["infra",  "docker · redis streams · cloudflare", "orange"],
+      ["ia",     "ollama local + llms na nuvem",        "magenta"],
+      ["base",   "palmas, tocantins — brasil",          "yellow"]
+    ]
+  },
+
+  "boas_vindas": {
+    "comando": "cat bem-vindo.txt",
+    "titulo": "seja bem-vindo!",
+    "linha": "ao terminal do jodan carvalho",
+    "dica": "↓ desça para os workspaces 2 e 3"
+  },
+
+  "agora": {
+    "rotulo": "agora",
+    "status": "construindo",
+    "nome": "zaruvi",
+    "descricao": ["super app do comércio hiperlocal", "com agentes de ia"],
+    "tags": [["piloto · palmas/to", "green"], ["whatsapp-first", "green1"], ["pix", "cyan"]]
+  },
+
+  "stack": [
+    ["nodedotjs",  "node.js",    "green"],  ["javascript", "javascript", "yellow"],
+    ["python",     "python",     "blue"],   ["dart",       "dart",       "teal"],
+    ["flutter",    "flutter",    "cyan"],   ["nextdotjs",  "next.js",    "fg"],
+    ["fastify",    "fastify",    "fg2"],    ["capacitor",  "capacitor",  "blue"],
+    ["postgresql", "postgresql", "cyan"],   ["redis",      "redis",      "red"],
+    ["docker",     "docker",     "blue"],   ["cloudflare", "cloudflare", "orange"],
+    ["ollama",     "ollama",     "fg"],     ["whatsapp",   "whatsapp",   "green1"],
+    ["linux",      "linux",      "yellow"], ["git",        "git",        "orange"]
+  ]
+}
