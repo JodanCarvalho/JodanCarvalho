@@ -1,0 +1,41 @@
+name: painel
+
+# Regera o painel do perfil todo dia e quando a configuração muda.
+on:
+  schedule:
+    - cron: "41 8 * * *"        # 05:41 em Palmas/TO (UTC−3)
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["painel/gerar.py", "painel/config.json", "painel/icones.json", ".github/workflows/painel.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: painel
+  cancel-in-progress: false
+
+jobs:
+  gerar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: gerar painel
+        env:
+          # Opcional: token fine-grained SOMENTE LEITURA do próprio dono (Contents: read em todos
+          # os repositórios). Sem ele, linguagens e horários de commit seguem do cache.
+          PAINEL_TOKEN: ${{ secrets.PAINEL_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 painel/gerar.py
+
+      - name: publicar
+        run: |
+          git config user.name "painel[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then echo "nada mudou"; exit 0; fi
+          git commit -m "painel: métricas de $(TZ=America/Araguaina date +'%d/%m %H:%M')"
+          git push
